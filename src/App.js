@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Alert from "./Alert";
-import "./styles.css"; // Import CSS file containing dark mode/light mode styles
+import "./styles.css";
 
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
@@ -16,13 +16,13 @@ function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
-  const [editID, setEditID] = useState(null); 
+  const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
     show: false,
     msg: "",
     type: "",
   });
-  const [theme, setTheme] = useState("light"); // Add state variable for theme mode
+  const [theme, setTheme] = useState("light");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,9 +105,6 @@ function App() {
           </button>
         </div>
       )}
-      <button className="theme-toggle-btn" onClick={toggleTheme}>
-        {theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-      </button>
     </section>
   );
 }
