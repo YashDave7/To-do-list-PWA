@@ -83,7 +83,7 @@ function App() {
     <section className={`section-center ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
       <form className="grocery-form" onSubmit={handleSubmit}>
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
-        <h3>Add Your Items</h3>
+        <h3>Add Your Tasks</h3>
         <div className="form-control">
           <input
             type="text"
@@ -101,7 +101,7 @@ function App() {
         <div className="grocery-container">
           <List items={list} removeItem={removeItem} editItem={editItem} />
           <button className="clear-btn" onClick={clearList}>
-            Clear Items
+            Clear List
           </button>
         </div>
       )}
