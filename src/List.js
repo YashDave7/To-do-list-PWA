@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+
 const List = ({ items, removeItem, editItem }) => {
   return (
     <div className="grocery-list">

@@ -1,0 +1,11 @@
+/* Dark Mode CSS */
+.dark-mode {
+  background-color: #333;
+  color: yellow; /* Text color for dark mode */
+}
+
+/* Light Mode CSS */
+.light-mode {
+  background-color: #fff;
+  color: red; /* Text color for light mode */
+}

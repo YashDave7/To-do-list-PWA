@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import List from "./List";
 import Alert from "./Alert";
+import "./styles.css"; // Import CSS file containing dark mode/light mode styles
 
 const getLocalStorage = () => {
   let list = localStorage.getItem("list");
@@ -15,12 +16,13 @@ function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
-  const [editID, setEditID] = useState(null);
+  const [editID, setEditID] = useState(null); 
   const [alert, setAlert] = useState({
     show: false,
     msg: "",
     type: "",
   });
+  const [theme, setTheme] = useState("light"); // Add state variable for theme mode
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,8 +75,12 @@ function App() {
     localStorage.setItem("list", JSON.stringify(list));
   }, [list]);
 
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <section className="section-center">
+    <section className={`section-center ${theme === "dark" ? "dark-mode" : "light-mode"}`}>
       <form className="grocery-form" onSubmit={handleSubmit}>
         {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
         <h3>Add Your Items</h3>
@@ -99,6 +105,9 @@ function App() {
           </button>
         </div>
       )}
+      <button className="theme-toggle-btn" onClick={toggleTheme}>
+        {theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
+      </button>
     </section>
   );
 }
